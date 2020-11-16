@@ -23,7 +23,7 @@ const logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
 };
-let users = {};
+// let users = {};
 const login = (request, response) => {
   const req = request;
   const res = response;
@@ -95,9 +95,8 @@ const userList = (req, res) => {
   res.render('userList');
 };
 const getUsers = (req, res) => {
-  users.username = req.body.username;
   res.json([{
-    username: users.username,
+    username: req.body.username,
   }]);
 };
 
