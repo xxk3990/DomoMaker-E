@@ -71,7 +71,6 @@ const signup = (request, response) => {
     };
 
     const newAccount = new AccountModel(accountData);
-    users.username = accountData.username;
     const savePromise = newAccount.save();
     savePromise.then(() => {
       req.session.account = Account.AccountModel.toAPI(newAccount);
@@ -96,6 +95,7 @@ const userList = (req, res) => {
   res.render('userList');
 };
 const getUsers = (req, res) => {
+  users.username = req.body.username;
   res.json([{
     username: users.username,
   }]);
