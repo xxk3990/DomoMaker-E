@@ -272,3 +272,9 @@ h4.domoHeight {
 .domo:last-child {
     margin-bottom:10px;
 }
+
+.users-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

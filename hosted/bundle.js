@@ -128,7 +128,9 @@ var UserContainer = function UserContainer(props) {
   var userList = props.users.map(function (user) {
     return /*#__PURE__*/React.createElement("div", {
       key: user.username
-    }, /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, user.username)));
+    }, /*#__PURE__*/React.createElement("ul", {
+      className: "users-list"
+    }, /*#__PURE__*/React.createElement("li", null, user.username)));
   });
   return /*#__PURE__*/React.createElement("div", null, userList);
 };
