@@ -43,7 +43,6 @@ const login = (request, response) => {
       });
     }
     req.session.account = Account.AccountModel.toAPI(account);
-    users.username += username;
     return res.json({
       redirect: '/maker',
     });
