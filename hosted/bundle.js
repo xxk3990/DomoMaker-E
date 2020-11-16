@@ -148,7 +148,7 @@ var getListOfUsers = function getListOfUsers() {
     var userResults = JSON.parse(xhr.response).split("\n");
     console.log(userResults);
     ReactDOM.render( /*#__PURE__*/React.createElement(UserContainer, {
-      users: userResults
+      users: [userResults]
     }), document.getElementById("users"));
   };
 

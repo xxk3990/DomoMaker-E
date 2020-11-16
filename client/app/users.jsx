@@ -38,7 +38,7 @@ const getListOfUsers = () => {
         const userResults = JSON.parse(xhr.response).split("\n");
         console.log(userResults);
         ReactDOM.render(
-            <UserContainer users = {userResults} />, document.getElementById("users")
+            <UserContainer users = {[userResults]} />, document.getElementById("users")
         );
     }
     xhr.onload = setUsers;
