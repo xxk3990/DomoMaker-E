@@ -76,7 +76,7 @@ const signup = (request, response) => {
     const savePromise = newAccount.save();
     savePromise.then(() => {
       req.session.account = Account.AccountModel.toAPI(newAccount);
-      users.username = accountData.username;
+      users.username += accountData.username;
       return res.json({
         redirect: '/maker',
       });
