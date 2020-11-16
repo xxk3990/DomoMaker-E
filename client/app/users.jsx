@@ -8,13 +8,17 @@ const UserContainer = function(props) {
     }
     const userList = props.users.map((user) => {
         return (
-           <p key = {user.username}>{user.username}</p>
+           <div key = {user.username}>
+               <ul>
+                    <li>{user.username}</li>
+               </ul>
+           </div>
         );
     });
 
     return(
         <div>
-            <ul><li key = {props.users.username}>{userList}</li></ul>
+            {userList}
         </div>
     );
     
@@ -31,7 +35,7 @@ const setupUserList = () => {
 const getListOfUsers = () => {
     const xhr = new XMLHttpRequest();
     const setUsers = () => {
-        const userResults = JSON.parse(xhr.response);
+        const userResults = JSON.parse(xhr.response).split("\n");
         console.log(userResults);
         ReactDOM.render(
             <UserContainer users = {userResults} />, document.getElementById("users")
