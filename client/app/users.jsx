@@ -8,13 +8,13 @@ const UserContainer = function(props) {
     }
     const userList = props.users.map((user) => {
         return (
-           <li key = {props.users.username}>{user.username}</li>
+           <ul><li key = {props.users.username}>{user.username}</li></ul>
         );
     });
 
     return(
         <div>
-            <ul>{userList}</ul>
+            {userList}
         </div>
     );
     

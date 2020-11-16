@@ -126,11 +126,11 @@ var UserContainer = function UserContainer(props) {
   }
 
   var userList = props.users.map(function (user) {
-    return /*#__PURE__*/React.createElement("li", {
+    return /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", {
       key: props.users.username
-    }, user.username);
+    }, user.username));
   });
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("ul", null, userList));
+  return /*#__PURE__*/React.createElement("div", null, userList);
 };
 
 var setupUserList = function setupUserList() {
