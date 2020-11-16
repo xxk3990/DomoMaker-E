@@ -8,18 +8,12 @@ const UserContainer = function(props) {
     }
     const userList = props.users.map((user) => {
         return (
-           <div key = {user.username}>
-               <ul className = "users-list">
-                    <li>{user.username}</li>
-               </ul>
-           </div>
+            <li> {user} </li>
         );
     });
 
     return(
-        <div>
-            {userList}
-        </div>
+        <ul className = "users-list">{userList}</ul>
     );
     
 };
