@@ -23,7 +23,9 @@ const logout = (req, res) => {
   req.session.destroy();
   res.redirect('/');
 };
-// let users = {};
+let users = {
+  username: "",
+};
 const login = (request, response) => {
   const req = request;
   const res = response;
@@ -74,6 +76,7 @@ const signup = (request, response) => {
     const savePromise = newAccount.save();
     savePromise.then(() => {
       req.session.account = Account.AccountModel.toAPI(newAccount);
+      users.username = accountData.username;
       return res.json({
         redirect: '/maker',
       });
@@ -96,7 +99,7 @@ const userList = (req, res) => {
 };
 const getUsers = (req, res) => {
   res.json([{
-    username: req.body.username,
+    username: users.username,
   }]);
 };
 

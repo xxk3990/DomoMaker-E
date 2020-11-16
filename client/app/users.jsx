@@ -6,9 +6,10 @@ const UserContainer = function(props) {
             </div>
         ); 
     }
-    const userList = props.users.map((user) => {
+    const usrs = props.users;
+    const userList = usrs.map((user) => {
         return (
-            <li> {user} </li>
+            <li key = {user.username}> {user.username} </li>
         );
     });
 
@@ -29,11 +30,11 @@ const setupUserList = () => {
 const getListOfUsers = () => {
     const xhr = new XMLHttpRequest();
     const setUsers = () => {
-        const userResults = JSON.parse(xhr.response).split("\n");
+        const userResults = JSON.parse(xhr.response);
         console.log(userResults);
         ReactDOM.render(
-            <UserContainer users = {[userResults]} />, document.getElementById("users")
-        );
+            <UserContainer users = {userResults} />, document.getElementById("users")
+        );   
     }
     xhr.onload = setUsers;
     xhr.open('GET', '/getUsers');

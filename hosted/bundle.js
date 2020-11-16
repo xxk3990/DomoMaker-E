@@ -125,8 +125,11 @@ var UserContainer = function UserContainer(props) {
     return /*#__PURE__*/React.createElement("div", null, "No users yet!");
   }
 
-  var userList = props.users.map(function (user) {
-    return /*#__PURE__*/React.createElement("li", null, " ", user, " ");
+  var usrs = props.users;
+  var userList = usrs.map(function (user) {
+    return /*#__PURE__*/React.createElement("li", {
+      key: user.username
+    }, " ", user.username, " ");
   });
   return /*#__PURE__*/React.createElement("ul", {
     className: "users-list"
@@ -145,10 +148,10 @@ var getListOfUsers = function getListOfUsers() {
   var xhr = new XMLHttpRequest();
 
   var setUsers = function setUsers() {
-    var userResults = JSON.parse(xhr.response).split("\n");
+    var userResults = JSON.parse(xhr.response);
     console.log(userResults);
     ReactDOM.render( /*#__PURE__*/React.createElement(UserContainer, {
-      users: [userResults]
+      users: userResults
     }), document.getElementById("users"));
   };
 
